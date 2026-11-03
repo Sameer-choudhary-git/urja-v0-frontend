@@ -1,6 +1,6 @@
 import type { ApiMeta, ApiProblem, EnergyReading, Meter, Transformer } from '@/src/types'
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VITE_API_BASE_URL || 'http://localhost:3000'
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VITE_API_BASE_URL || 'http://15.252.70.41'
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY || process.env.VITE_API_KEY
 export class ApiError extends Error { problem: ApiProblem; constructor(problem: ApiProblem) { super(problem.detail || problem.title || 'API request failed'); this.problem = problem } }
 

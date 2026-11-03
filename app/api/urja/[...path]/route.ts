@@ -11,7 +11,7 @@
  */
 import type { NextRequest } from 'next/server'
 
-const BASE_URL = (process.env.URJA_API_BASE_URL ?? 'http://localhost:3000').replace(/\/+$/, '')
+const BASE_URL = (process.env.URJA_API_BASE_URL ?? 'http://15.252.70.41').replace(/\/+$/, '')
 const API_KEY = process.env.URJA_API_KEY ?? ''
 const TIMEOUT_MS = 90_000 // an anomaly scan of 50 meters can take a while on a cold cache
 

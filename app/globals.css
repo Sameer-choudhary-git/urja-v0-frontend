@@ -60,14 +60,19 @@ body::before {
 }
 
 /* Keep Leaflet's internal z-indexes inside the map, under the sticky header and the mobile menu */
-.leaflet-container {
+/* OSM tiles turned into a dark basemap: invert, then rotate hues back so water stays blue. */
+.map-dark .leaflet-tile-loaded {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.5);
+}
+
+div.leaflet-container {
   isolation: isolate;
   z-index: 0;
   font-family: inherit;
   background: #0a1020;
 }
-.leaflet-bar a,
-.leaflet-bar a:hover {
+.leaflet-container .leaflet-bar a,
+.leaflet-container .leaflet-bar a:hover {
   background: var(--color-panel-2);
   color: var(--color-ink);
   border-color: var(--color-line);
@@ -79,7 +84,7 @@ body::before {
 .leaflet-control-attribution a {
   color: var(--color-muted) !important;
 }
-.leaflet-tooltip {
+div.leaflet-tooltip {
   background: var(--color-panel);
   color: var(--color-ink);
   border: 1px solid var(--color-line);

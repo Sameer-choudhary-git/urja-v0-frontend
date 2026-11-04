@@ -196,6 +196,8 @@ export interface RawReading {
   kwhRegister: number
   kvahRegister: number
   voltageR: number
+  /** 30 for a half-hourly meter, 1440 for a once-a-day meter, longer after a gap. */
+  intervalMinutes: number
   intervalKwh: number | null
   intervalKvah: number | null
   powerFactor: number | null
@@ -233,6 +235,8 @@ export interface Readings {
       powerFactor: number | null
       voltageR: VoltageStats | null
       peak: { intervalStart: string; kwh: number } | null
+      /** The meter's usual minutes between readings: 30, or 1440 when the portal reads it once a day. */
+      readingIntervalMinutes: number | null
       firstReadingAt: string | null
       lastReadingAt: string | null
     }

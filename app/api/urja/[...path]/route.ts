@@ -11,12 +11,12 @@
  */
 import type { NextRequest } from 'next/server'
 
-const BASE_URL = (process.env.URJA_API_BASE_URL ?? 'http://15.252.70.41').replace(/\/+$/, '')
+const BASE_URL = (process.env.URJA_API_BASE_URL ?? 'http://localhost:3000').replace(/\/+$/, '')
 const API_KEY = process.env.URJA_API_KEY ?? ''
 const TIMEOUT_MS = 90_000 // an anomaly scan of 50 meters can take a while on a cold cache
 
 const ALLOWED = /^(v1\/[A-Za-z0-9._\-/]+|v1\/meters\.geojson|ready|health)$/
-const PASS_HEADERS = ['content-type', 'x-request-id', 'x-data-age', 'x-data-stale', 'x-data-source', 'x-cache', 'retry-after']
+const PASS_HEADERS = ['content-type', 'content-disposition', 'x-request-id', 'x-data-age', 'x-data-stale', 'x-data-source', 'x-cache', 'retry-after']
 
 export const dynamic = 'force-dynamic'
 
